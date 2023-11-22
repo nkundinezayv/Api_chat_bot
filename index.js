@@ -1,9 +1,28 @@
+
 const Replicate = require("replicate");
 require("dotenv").config();
+
+// const OpenAI = require("openai");
+// const openai = new OpenAI({
+//  apiKey: "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"
+// });
+// const openFun=async()=>{
+  
+//  const prompt_text = "hello"
+// const chatCompletion = await openai.chat.completions.create({
+//    model: "text-davinci-003",
+//    prompt: prompt_text,
+//    messages: [{"role": "user", "content": "YOUR PROMPT TEXT",}],
+//    max_tokens:100
+//  });
+//  console.log(chatCompletion.choices[0].message.content);
+// }
+// openFun();
 
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
 });
+
 
 
 (async() =>{
@@ -13,7 +32,7 @@ const replicate = new Replicate({
     input: {
       width: 1024,
       height: 1024,
-      prompt: "alien in on the ground , spaceship in the skye, cinematic",
+      prompt: "",
       refine: "expert_ensemble_refiner",
       scheduler: "KarrasDPM",
       num_outputs: 4,
@@ -26,3 +45,7 @@ const replicate = new Replicate({
     );
   console.log(output);
 })();
+
+
+
+
